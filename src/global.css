@@ -57,3 +57,32 @@
       @apply bg-background text-foreground;
    }
 }
+.ce-block__content {
+   padding-left: 1rem;
+}
+.ce-block__content:hover {
+   background-color: #f0f0f0; /* Light grey background on hover */
+   border-radius: 0.5rem;
+}
+.ce-header {
+   padding-top: 0.5rem !important;
+   padding-bottom: 0.5rem !important;
+}
+h1.ce-header {
+   font-size: 1.8rem !important;
+}
+h2.ce-header {
+   font-size: 1.7rem !important;
+}
+h3.ce-header {
+   font-size: 1.6rem !important;
+}
+h4.ce-header {
+   font-size: 1.5rem !important;
+}
+h5.ce-header {
+   font-size: 1.4rem !important;
+}
+h6.ce-header {
+   font-size: 1.2rem !important;
+}

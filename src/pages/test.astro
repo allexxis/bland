@@ -1,0 +1,50 @@
+---
+import '@/global.css';
+
+---
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Blog</title>
+    </head>
+    <body ></body>
+        <h1>Astro</h1>  
+        <div id="editorjs"></div>
+        <button id="save-button" class=" bg-blue-500 text-white px-4 py-2 rounded-md border-2 border-blue-600 hover:bg-blue-600 hover:text-white self-center">Save</button>
+        <pre id="output"></pre>
+        <script>
+            import EditorJS from '@editorjs/editorjs';
+            import Image from '@/components/editor/Image';
+            const localData = localStorage.getItem('editorjs');
+            const data =localData?JSON.parse(localData):null;
+            const editor = new EditorJS({
+              autofocus: true,
+              data,
+              tools: {
+                    image:{
+                        class: Image,
+                        inlineToolbar: true,
+            
+                    }
+                    
+                }
+            });
+            const saveButton = document.getElementById('save-button');
+            if (saveButton) {
+                saveButton.addEventListener('click', () => {
+                    const output = document.getElementById('output');
+                    if (output) {
+                        editor.save().then( savedData => {
+                        localStorage.setItem('editorjs', JSON.stringify(savedData));
+                        output.innerHTML = JSON.stringify(savedData, null, 4);
+                    })
+                    }
+                    
+                })
+            }
+            
+        </script>
+    </body>
+</html>

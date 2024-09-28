@@ -1,0 +1,10 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Edit from '@/components/pages/editor';
+import '@/global.css';
+
+---
+
+<Layout title='Editor'>
+    <Edit client:only="react" />
+</Layout>
